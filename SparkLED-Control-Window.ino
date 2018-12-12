@@ -68,20 +68,6 @@ const int IntPin = 12;
 
 //#include "Commands.h"
 
-ESP8266WebServer webServer(80);
-//WebSocketsServer webSocketsServer = WebSocketsServer(81);
-ESP8266HTTPUpdateServer httpUpdateServer;
-
-#include "FSBrowser.h"
-
-#define DATA_PIN      13
-#define LED_TYPE      WS2811
-#define COLOR_ORDER   RGB
-#define NUM_LEDS      50
-
-#define MILLI_AMPS         6000 // IMPORTANT: set the max milli-Amps of your power supply (4A = 4000mA)
-#define FRAMES_PER_SECOND  120  // here you can control the speed. With the Access Point / Web Server the animations run a bit slower.
-
 const bool apMode = true;
 
 #include "Secrets.h" // this file is intentionally not included in the sketch, so nobody accidentally commits their secret information.
@@ -93,6 +79,22 @@ const bool apMode = true;
 // Wi-Fi network to connect to (if not in AP mode)
 // char* ssid = "your-ssid";
 // char* password = "your-password";
+
+ESP8266WebServer webServer(80);
+//WebSocketsServer webSocketsServer = WebSocketsServer(81);
+ESP8266HTTPUpdateServer httpUpdateServer;
+
+#include "FSBrowser.h"
+
+#define DATA_PIN      13
+#define LED_TYPE      WS2811
+// #define LED_TYPE      WS2812 //for WS2812 strips
+#define COLOR_ORDER   RGB
+// #define COLOR_ORDER   GRB //for WS2812 strips
+#define NUM_LEDS      50
+
+#define MILLI_AMPS         6000 // IMPORTANT: set the max milli-Amps of your power supply (4A = 4000mA)
+#define FRAMES_PER_SECOND  120  // here you can control the speed. With the Access Point / Web Server the animations run a bit slower.
 
 
 CRGB leds[NUM_LEDS];
